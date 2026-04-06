@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Implementando o Chart.js</title>
+</head>
+
+<body>
+    <div class="container-graficos">
+        <div class="container-title">
+            <h1>By Caiopicciarelli</h1>
+        </div>
+        <div class="content">
+            <canvas id="myChart"></canvas>
+            <canvas id="myChart2"></canvas>
+            <canvas id="myChart3"></canvas>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<style>
+    .container-graficos {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        width: 100%;
+        height: 98vh;
+    }
+
+    .container-title{
+        height: 10%;
+    }
+
+    .content{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 60%;
+    }
+
+    .container-graficos canvas {
+        max-width: 28%;
+        max-height: 90%;
+    }
+</style>
+
+<script>
+    const grafico_linha = document.getElementById('myChart');
+    const grafico_colunas = document.getElementById('myChart2');
+    const grafico_donut = document.getElementById('myChart3');
+
+    new Chart(grafico_linha, {
+        type: 'line', // bar para gráficos de colunas, pizza para gráficos de pizza || + tipos na documentação do chart.js 
+        data: {
+            labels:
+                [
+                    'Corinthians', // trocando os valores do vetor
+                    'Palmeiras',
+                    'São Paulo',
+                    'Santos',
+                    'Mirassol',
+                    'Grêmio'
+                ],
+            datasets: [{
+                label: 'Melhores Times Brasileiros',
+                data:
+                    [
+                        20,
+                        12,
+                        1,
+                        2,
+                        3,
+                        6
+                    ],
+                borderWidth: 3,
+                borderRadius: 9, // Adicionando uma borda arredondada para deixar mais suave
+                backgroundColor: '#000'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    new Chart(grafico_colunas, {
+        type: 'bar', // bar para gráficos de colunas, pizza para gráficos de pizza || + tipos na documentação do chart.js 
+        data: {
+            labels:
+                [
+                    'Corinthians', // trocando os valores do vetor
+                    'Palmeiras',
+                    'São Paulo',
+                    'Santos',
+                    'Mirassol',
+                    'Grêmio'
+                ],
+            datasets: [{
+                label: 'Melhores Times Brasileiros',
+                data:
+                    [
+                        20,
+                        12,
+                        1,
+                        2,
+                        3,
+                        6
+                    ],
+                borderWidth: 3,
+                borderRadius: 9, // Adicionando uma borda arredondada para deixar mais suave
+                backgroundColor: '#000'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    new Chart(grafico_donut, {
+        type: 'doughnut', // bar para gráficos de colunas, pizza para gráficos de pizza || + tipos na documentação do chart.js 
+        data: {
+            labels: [
+                'Red',
+                'Blue',
+                'Yellow'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [300, 50, 100],
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
