@@ -16,7 +16,6 @@
         <div class="content">
             <canvas id="myChart"></canvas>
             <canvas id="myChart2"></canvas>
-            <canvas id="myChart3"></canvas>
         </div>
     </div>
 </body>
@@ -33,11 +32,11 @@
         height: 98vh;
     }
 
-    .container-title{
+    .container-title {
         height: 10%;
     }
 
-    .content{
+    .content {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
@@ -46,7 +45,7 @@
     }
 
     .container-graficos canvas {
-        max-width: 28%;
+        max-width: 45%;
         max-height: 90%;
     }
 </style>
@@ -54,35 +53,57 @@
 <script>
     const grafico_linha = document.getElementById('myChart');
     const grafico_colunas = document.getElementById('myChart2');
-    const grafico_donut = document.getElementById('myChart3');
 
     new Chart(grafico_linha, {
         type: 'line', // bar para gráficos de colunas, pizza para gráficos de pizza || + tipos na documentação do chart.js 
         data: {
             labels:
                 [
-                    'Corinthians', // trocando os valores do vetor
-                    'Palmeiras',
-                    'São Paulo',
-                    'Santos',
-                    'Mirassol',
-                    'Grêmio'
+                    '12:00', // trocando os valores do vetor
+                    '13:00',
+                    '14:00',
+                    '15:00',
+                    '16:00',
+                    '17:00'
                 ],
-            datasets: [{
-                label: 'Melhores Times Brasileiros',
-                data:
-                    [
-                        20,
-                        12,
-                        1,
-                        2,
-                        3,
-                        6
-                    ],
-                borderWidth: 3,
-                borderRadius: 9, // Adicionando uma borda arredondada para deixar mais suave
-                backgroundColor: '#000'
-            }]
+            datasets: [
+                {
+                    label:
+                        [
+                            'Temperatura'
+                        ],
+                    data:
+                        [
+                            30,
+                            29,
+                            28,
+                            25,
+                            22,
+                            23
+                        ],
+                    borderWidth: 3,
+                    borderRadius: 9, // Adicionando uma borda arredondada para deixar mais suave
+                    backgroundColor: 'red'
+                },
+                {
+                    label:
+                        [
+                            'Umidade'
+                        ],
+                    data:
+                        [
+                            80,
+                            82,
+                            80,
+                            85,
+                            80,
+                            83
+                        ],
+                    borderWidth: 3,
+                    borderRadius: 9, // Adicionando uma borda arredondada para deixar mais suave
+                    backgroundColor: 'blue'
+                }
+            ]
         },
         options: {
             scales: {
@@ -98,56 +119,45 @@
         data: {
             labels:
                 [
-                    'Corinthians', // trocando os valores do vetor
-                    'Palmeiras',
-                    'São Paulo',
-                    'Santos',
-                    'Mirassol',
-                    'Grêmio'
+                    'Janeiro', // trocando os valores do vetor
+                    'Fevereiro',
+                    'Março',
+                    'Abril',
+                    'Maio',
+                    'Junho'
                 ],
-            datasets: [{
-                label: 'Melhores Times Brasileiros',
-                data:
-                    [
-                        20,
-                        12,
-                        1,
-                        2,
-                        3,
-                        6
-                    ],
-                borderWidth: 3,
-                borderRadius: 9, // Adicionando uma borda arredondada para deixar mais suave
-                backgroundColor: '#000'
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+            datasets: [
+                {
+                    label: 'Temperatura Média',
+                    data:
+                        [
+                            22,
+                            24,
+                            27,
+                            23,
+                            20,
+                            18
+                        ],
+                    borderWidth: 3,
+                    borderRadius: 3, // Adicionando uma borda arredondada para deixar mais suave
+                    backgroundColor: 'red'
+                },
+                {
+                    label: 'Umidade Média',
+                    data:
+                        [
+                            90,
+                            89,
+                            93,
+                            87,
+                            88,
+                            82
+                        ],
+                    borderWidth: 3,
+                    borderRadius: 3, // Adicionando uma borda arredondada para deixar mais suave
+                    backgroundColor: 'blue'
                 }
-            }
-        }
-    });
-
-    new Chart(grafico_donut, {
-        type: 'doughnut', // bar para gráficos de colunas, pizza para gráficos de pizza || + tipos na documentação do chart.js 
-        data: {
-            labels: [
-                'Red',
-                'Blue',
-                'Yellow'
-            ],
-            datasets: [{
-                label: 'My First Dataset',
-                data: [300, 50, 100],
-                backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)'
-                ],
-                hoverOffset: 4
-            }]
+            ]
         },
         options: {
             scales: {
